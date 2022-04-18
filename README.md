@@ -1,4 +1,4 @@
-﻿# Gintech_group_proeject
+﻿# Fintech_group_proeject
 ## Laravel Web
 For starting the laravel server
 ```
