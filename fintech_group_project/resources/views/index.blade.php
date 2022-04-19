@@ -49,7 +49,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
 
             <main>
                 <div class="container-xl">
-                    <h3 class="mb-2 mt-2">Portfolio Compare Table</h3>
+                    <h3 class="mb-2 mt-2">Gold ETF Portfolio Comparison Table</h3>
                 </div>
 
                 <div class="container-xl">
@@ -79,7 +79,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                                     </div>
 
                                     <div class="col-4 my-auto">
-                                        <h5 class="text-left">{{round($min_risk_portfolios_data['Risk'],4)}}</h5>
+                                        <h5 class="text-left">{{round($min_risk_portfolios_data['Risk'],4)}}%</h5>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                                     </div>
 
                                     <div class="col-4 my-auto">
-                                        <h5 class="text-left">{{round($high_return_portfolios_data['Risk'],4)}}</h5>
+                                        <h5 class="text-left">{{round($high_return_portfolios_data['Risk'],4)}}%</h5>
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                 </div>
 
                 <div class="container-xl">
-                    <h4 class="p-3 mb-2 bg-dark text-white rounded">Acceptable Portoflio Filter</h4>
+                    <h4 class="p-3 mb-2 bg-dark text-white rounded">Extra Condition for the Portfolio</h4>
 
                     <div class="row g-4">
                         <div class="col-sm-6 col-xl-6">
@@ -134,7 +134,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                                     </div>
 
                                     <div class="col-4 my-auto">
-                                        <input type="number" id="accepted_return">
+                                        <input type="number" id="accepted_return">%
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                                     </div>
 
                                     <div class="col-4 my-auto">
-                                        <input type="number" id="accepted_risk">
+                                        <input type="number" id="accepted_risk">%
                                     </div>
                                 </div>
                             </div>
@@ -169,16 +169,16 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                                 <th><b>Portoflio ID</b></th>
                                 <th><b>Return Rate</b></th>
                                 <th><b>Risk Rate</b></th>
-                                <th><b>DBP weight</b></th>
-                                <th><b>DGL weight</b></th>
-                                <th><b>DGP weight</b></th>
-                                <th><b>DGZ weight</b></th>
-                                <th><b>DZZ weight</b></th>
-                                <th><b>GLD weight</b></th>
-                                <th><b>GLL weight</b></th>
-                                <th><b>IAU weight</b></th>
-                                <th><b>SGOL weight</b></th>
-                                <th><b>UGL weight</b></th>
+                                <th><b>DBP Ratio</b></th>
+                                <th><b>DGL Ratio</b></th>
+                                <th><b>DGP Ratio</b></th>
+                                <th><b>DGZ Ratio</b></th>
+                                <th><b>DZZ Ratio</b></th>
+                                <th><b>GLD Ratio</b></th>
+                                <th><b>GLL Ratio</b></th>
+                                <th><b>IAU Ratio</b></th>
+                                <th><b>SGOL Ratio</b></th>
+                                <th><b>UGL Ratio</b></th>
                                 <!-- <td colspan="2"><b>Action</b></td> -->
                             </tr>
                         </thead>
@@ -197,50 +197,62 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
 
                                     $html_tabl .= "<td>";
                                     $html_tabl .= strval(round($portfolios_data['Return Rate'][$i], 4) * 100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
                                     $html_tabl .= strval(round($portfolios_data['Risk'][$i], 4));
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['DBP weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['DBP weight'][$i], 4) * 100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['DGL weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['DGL weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['DGP weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['DGP weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['DGZ weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['DGZ weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['DZZ weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['DZZ weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['GLD weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['GLD weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['GLL weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['GLL weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['IAU weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['IAU weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['SGOL weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['SGOL weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
                                     $html_tabl .= "<td>";
-                                    $html_tabl .= strval(round($portfolios_data['UGL weight'][$i], 4));
+                                    $html_tabl .= strval(round($portfolios_data['UGL weight'][$i], 4)*100);
+                                    $html_tabl .= "%";
                                     $html_tabl .= "</td>";
 
 
