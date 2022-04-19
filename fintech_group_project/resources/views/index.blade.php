@@ -51,11 +51,9 @@ if (isset($stock_historical_data->data)) {
     <div class="container-fluid">
         <div class="row">
 
-            <!-- Including sidebar menu -->
-            @include('layouts.sidebar_menu')
 
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <main>
+                <div class="container-xl">
                     <table id="example" class="display" style="width:100%; height: 800px">
 
                     <thead>
@@ -80,59 +78,63 @@ if (isset($stock_historical_data->data)) {
                             if(isset($portfolios_data)){
                                 $portfolios_data = json_decode(json_encode($portfolios_data), true);
 
-                                for ($i = 0; $i < count($portfolios_data['Return Rate']); $i++) {
-                                    echo "<tr>";
-                                        echo "<td>";
-                                        echo strval($portfolios_data['Return Rate'][$i]);
-                                        echo "</td>";
+                                $html_tabl = "";
+                                // for ($i = 0; $i < count($portfolios_data['Return Rate']); $i++) {
+                                for ($i = 0; $i < 100; $i++) {
+                                    $html_tabl .= "<tr>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['Return Rate'][$i]*100);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['Risk'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['Risk'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['DBP weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['DBP weight'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['DGL weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['DGL weight'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['DGP weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['DGP weight'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['DGZ weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['DGZ weight'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['DZZ weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['DZZ weight'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['GLD weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['GLD weight'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['GLL weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['GLL weight'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['IAU weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['IAU weight'][$i]);
+                                    $html_tabl .= "</td>";
 
-                                        echo "<td>";
-                                        echo strval($portfolios_data['SGOL weight'][$i]);
-                                        echo "</td>";
-                                        
-                                        echo "<td>";
-                                        echo strval($portfolios_data['UGL weight'][$i]);
-                                        echo "</td>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['SGOL weight'][$i]);
+                                    $html_tabl .= "</td>";
+                                    
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($portfolios_data['UGL weight'][$i]);
+                                    $html_tabl .= "</td>";
 
 
-                                    echo "</tr>";
+                                $html_tabl .= "</tr>";
                                 }
+
+                                echo $html_tabl;
                                 
                             }
                         ?>
@@ -167,10 +169,10 @@ if (isset($stock_historical_data->data)) {
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <script>
-        window.onload = function() {
+        // window.onload = function() {
             
-            document.getElementById("sidebar-stock").style.color = "white";
-        }
+        //     document.getElementById("sidebar-stock").style.color = "white";
+        // }
 
         $(document).ready(function() {
             $('#example').DataTable({
