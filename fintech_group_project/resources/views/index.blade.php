@@ -1,12 +1,7 @@
 <?php
 
-$dataPoints = array();
-
-if (isset($stock_historical_data->data)) {
-    foreach ($stock_historical_data->data as $data_no => $stock_data) {
-        array_push($dataPoints, array("y" => round($stock_data[5], 2), "label" => $stock_data[0]));
-    }
-}
+$min_risk_portfolios_data = json_decode(json_encode($min_risk_portfolios_data), true);
+$high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_data), true);
 
 ?>
 
@@ -53,6 +48,81 @@ if (isset($stock_historical_data->data)) {
 
 
             <main>
+                <div class="container-xl">
+                    <h3 class="mb-2 mt-2">Portfolio Compare Table</h3>
+                </div>
+
+                <div class="container-xl">
+                    <h4 class="p-3 mb-2 bg-success text-white rounded" >Min Risk Portoflio</h4>
+
+                    <div class="row g-4">
+                        <div class="col-sm-6 col-xl-6">
+                                <div class="p-3 mb-2 bg-light text-dark rounded border border-success " >
+                                    <div class="row">
+                                        <div class="col-sm my-auto">
+                                            <h4 class="text-left">Return Rate</h4>
+                                        </div>
+
+                                        <div class="col-4 my-auto">
+                                            <h5 class="text-left">{{round($min_risk_portfolios_data['Return Rate']*100,4)}}%</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                        <div class="col-sm-6 col-xl-6">
+                            <div class="p-3 mb-2 bg-light text-dark rounded border border-success" >
+                                <div class="row">
+                                    <div class="col-sm my-auto">
+                                        <h4 class="text-left">Risk Rate</h4>
+                                    </div>
+
+                                    <div class="col-4 my-auto">
+                                        <h5 class="text-left">{{round($min_risk_portfolios_data['Risk'],4)}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-xl">
+                    <h4 class="p-3 mb-2 bg-primary text-white rounded">Max Return Portoflio</h4>
+
+                    <div class="row g-4">
+                        <div class="col-sm-6 col-xl-6">
+                                <div class="p-3 mb-2 bg-blue text-dark rounded border border-primary " >
+                                    <div class="row">
+                                        <div class="col-sm my-auto">
+                                            <h4 class="text-left">Return Rate</h4>
+                                        </div>
+
+                                        <div class="col-4 my-auto">
+                                            <h5 class="text-left">{{round($high_return_portfolios_data['Return Rate']*100,4)}}%</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                        <div class="col-sm-6 col-xl-6">
+                            <div class="p-3 mb-2 bg-light text-dark rounded border border-primary" >
+                                <div class="row">
+                                    <div class="col-sm my-auto">
+                                        <h4 class="text-left">Risk Rate</h4>
+                                    </div>
+
+                                    <div class="col-4 my-auto">
+                                        <h5 class="text-left">{{round($high_return_portfolios_data['Risk'],4)}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="container-xl">
                     <table id="example" class="display" style="width:100%; height: 800px">
 
