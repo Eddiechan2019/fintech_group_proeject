@@ -130,7 +130,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                             <div class="p-3 mb-2 bg-blue text-dark rounded border border-dark ">
                                 <div class="row">
                                     <div class="col-sm my-auto">
-                                        <h4 class="text-left">Accpetable Return Rate</h4>
+                                        <h4 class="text-left">Acceptable Return Rate</h4>
                                     </div>
 
                                     <div class="col-4 my-auto">
@@ -145,7 +145,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                             <div class="p-3 mb-2 bg-light text-dark rounded border border-dark">
                                 <div class="row">
                                     <div class="col-sm my-auto">
-                                        <h4 class="text-left">Accpetable Risk Rate</h4>
+                                        <h4 class="text-left">Acceptable Risk Rate</h4>
                                     </div>
 
                                     <div class="col-4 my-auto">
