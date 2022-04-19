@@ -27,7 +27,7 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
 
     <!-- Call Fa Icon library -->
     <script src="https://kit.fontawesome.com/d1ef0c2517.js" crossorigin="anonymous"></script>
-    
+
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
@@ -53,26 +53,26 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                 </div>
 
                 <div class="container-xl">
-                    <h4 class="p-3 mb-2 bg-success text-white rounded" >Min Risk Portoflio</h4>
+                    <h4 class="p-3 mb-2 bg-success text-white rounded">Min Risk Portoflio</h4>
 
                     <div class="row g-4">
                         <div class="col-sm-6 col-xl-6">
-                                <div class="p-3 mb-2 bg-light text-dark rounded border border-success " >
-                                    <div class="row">
-                                        <div class="col-sm my-auto">
-                                            <h4 class="text-left">Return Rate</h4>
-                                        </div>
+                            <div class="p-3 mb-2 bg-light text-dark rounded border border-success ">
+                                <div class="row">
+                                    <div class="col-sm my-auto">
+                                        <h4 class="text-left">Return Rate</h4>
+                                    </div>
 
-                                        <div class="col-4 my-auto">
-                                            <h5 class="text-left">{{round($min_risk_portfolios_data['Return Rate']*100,4)}}%</h5>
-                                        </div>
+                                    <div class="col-4 my-auto">
+                                        <h5 class="text-left">{{round($min_risk_portfolios_data['Return Rate']*100,4)}}%</h5>
                                     </div>
                                 </div>
+                            </div>
 
                         </div>
 
                         <div class="col-sm-6 col-xl-6">
-                            <div class="p-3 mb-2 bg-light text-dark rounded border border-success" >
+                            <div class="p-3 mb-2 bg-light text-dark rounded border border-success">
                                 <div class="row">
                                     <div class="col-sm my-auto">
                                         <h4 class="text-left">Risk Rate</h4>
@@ -92,22 +92,22 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
 
                     <div class="row g-4">
                         <div class="col-sm-6 col-xl-6">
-                                <div class="p-3 mb-2 bg-blue text-dark rounded border border-primary " >
-                                    <div class="row">
-                                        <div class="col-sm my-auto">
-                                            <h4 class="text-left">Return Rate</h4>
-                                        </div>
+                            <div class="p-3 mb-2 bg-blue text-dark rounded border border-primary ">
+                                <div class="row">
+                                    <div class="col-sm my-auto">
+                                        <h4 class="text-left">Return Rate</h4>
+                                    </div>
 
-                                        <div class="col-4 my-auto">
-                                            <h5 class="text-left">{{round($high_return_portfolios_data['Return Rate']*100,4)}}%</h5>
-                                        </div>
+                                    <div class="col-4 my-auto">
+                                        <h5 class="text-left">{{round($high_return_portfolios_data['Return Rate']*100,4)}}%</h5>
                                     </div>
                                 </div>
+                            </div>
 
                         </div>
 
                         <div class="col-sm-6 col-xl-6">
-                            <div class="p-3 mb-2 bg-light text-dark rounded border border-primary" >
+                            <div class="p-3 mb-2 bg-light text-dark rounded border border-primary">
                                 <div class="row">
                                     <div class="col-sm my-auto">
                                         <h4 class="text-left">Risk Rate</h4>
@@ -122,98 +122,52 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                     </div>
                 </div>
 
+                <div class="container-xl">
+                    <h4 class="p-3 mb-2 bg-dark text-white rounded">Acceptable Portoflio Filter</h4>
+
+                    <div class="row g-4">
+                        <div class="col-sm-6 col-xl-6">
+                            <div class="p-3 mb-2 bg-blue text-dark rounded border border-dark ">
+                                <div class="row">
+                                    <div class="col-sm my-auto">
+                                        <h4 class="text-left">Accpetable Return Rate</h4>
+                                    </div>
+
+                                    <div class="col-4 my-auto">
+                                        <input type="number" id="accepted_return">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6 col-xl-6">
+                            <div class="p-3 mb-2 bg-light text-dark rounded border border-dark">
+                                <div class="row">
+                                    <div class="col-sm my-auto">
+                                        <h4 class="text-left">Accpetable Risk Rate</h4>
+                                    </div>
+
+                                    <div class="col-4 my-auto">
+                                        <input type="number" id="accepted_risk">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                
 
                 <div class="container-xl">
                     <table id="example" class="display" style="width:100%; height: 800px">
 
-                    <thead>
-                        <tr>
-                            <th><b>Return Rate</b></th>
-                            <th><b>Risk Rate</b></th>
-                            <th><b>DBP weight</b></th>
-                            <th><b>DGL weight</b></th>
-                            <th><b>DGP weight</b></th>
-                            <th><b>DGZ weight</b></th>
-                            <th><b>DZZ weight</b></th>
-                            <th><b>GLD weight</b></th>
-                            <th><b>GLL weight</b></th>
-                            <th><b>IAU weight</b></th>
-                            <th><b>SGOL weight</b></th>
-                            <th><b>UGL weight</b></th>
-                            <!-- <td colspan="2"><b>Action</b></td> -->
-                        </tr>
-                    </thead>
-                    <tbody id="tableData">
-                        <?php
-                            if(isset($portfolios_data)){
-                                $portfolios_data = json_decode(json_encode($portfolios_data), true);
-
-                                $html_tabl = "";
-                                // for ($i = 0; $i < count($portfolios_data['Return Rate']); $i++) {
-                                for ($i = 0; $i < 100; $i++) {
-                                    $html_tabl .= "<tr>";
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['Return Rate'][$i]*100);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['Risk'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['DBP weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['DGL weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['DGP weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['DGZ weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['DZZ weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['GLD weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['GLL weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['IAU weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['SGOL weight'][$i]);
-                                    $html_tabl .= "</td>";
-                                    
-                                    $html_tabl .= "<td>";
-                                    $html_tabl .= strval($portfolios_data['UGL weight'][$i]);
-                                    $html_tabl .= "</td>";
-
-
-                                $html_tabl .= "</tr>";
-                                }
-
-                                echo $html_tabl;
-                                
-                            }
-                        ?>
-
-                    </tbody>
-
-                    <tfoot>
-                        <tr>
-                            <th><b>Return Rate</b></th>
+                        <thead>
+                            <tr>
+                                <th><b>Portoflio ID</b></th>
+                                <th><b>Return Rate</b></th>
                                 <th><b>Risk Rate</b></th>
                                 <th><b>DBP weight</b></th>
                                 <th><b>DGL weight</b></th>
@@ -225,8 +179,97 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
                                 <th><b>IAU weight</b></th>
                                 <th><b>SGOL weight</b></th>
                                 <th><b>UGL weight</b></th>
-                        </tr>
-                    </tfoot>
+                                <!-- <td colspan="2"><b>Action</b></td> -->
+                            </tr>
+                        </thead>
+                        <tbody id="tableData">
+                            <?php
+                            if (isset($portfolios_data)) {
+                                $portfolios_data = json_decode(json_encode($portfolios_data), true);
+
+                                $html_tabl = "";
+                                for ($i = 0; $i < count($portfolios_data['Return Rate']); $i++) {
+                                // for ($i = 0; $i < 100; $i++) {
+                                    $html_tabl .= "<tr>";
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval($i + 1);
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['Return Rate'][$i], 4) * 100);
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['Risk'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['DBP weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['DGL weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['DGP weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['DGZ weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['DZZ weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['GLD weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['GLL weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['IAU weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['SGOL weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+                                    $html_tabl .= "<td>";
+                                    $html_tabl .= strval(round($portfolios_data['UGL weight'][$i], 4));
+                                    $html_tabl .= "</td>";
+
+
+                                    $html_tabl .= "</tr>";
+                                }
+
+                                echo $html_tabl;
+                            }
+                            ?>
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <th><b>Portoflio ID</b></th>
+                                <th><b>Return Rate</b></th>
+                                <th><b>Risk Rate</b></th>
+                                <th><b>DBP weight</b></th>
+                                <th><b>DGL weight</b></th>
+                                <th><b>DGP weight</b></th>
+                                <th><b>DGZ weight</b></th>
+                                <th><b>DZZ weight</b></th>
+                                <th><b>GLD weight</b></th>
+                                <th><b>GLL weight</b></th>
+                                <th><b>IAU weight</b></th>
+                                <th><b>SGOL weight</b></th>
+                                <th><b>UGL weight</b></th>
+                            </tr>
+                        </tfoot>
 
                     </table>
                 </div>
@@ -239,20 +282,106 @@ $high_return_portfolios_data = json_decode(json_encode($high_return_portfolios_d
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <script>
-        // window.onload = function() {
-            
-        //     document.getElementById("sidebar-stock").style.color = "white";
-        // }
+        $.fn.dataTable.ext.search.push(
+                function(settings, data, dataIndex) {
+                    var accepted_risk = $('#accepted_risk').val();
+                    var accepted_return = $('#accepted_return').val();
+
+                    var portfolio_return = parseFloat(data[1]);
+                    var risk = parseFloat(data[2]);
+
+                    if(accepted_risk == "" && accepted_return == ""){
+                        return true
+                    }
+
+                    if((accepted_risk > risk && accepted_return < portfolio_return) ||
+                        (accepted_risk > risk && portfolio_return == "") ||
+                        (accepted_return < portfolio_return && accepted_risk == "")){
+                        return true
+                    }else{
+                        return false
+                    }
+
+                    if (accepted_risk > risk) {
+                        return true
+                    } else {
+                        return false
+                    }
+
+                }
+            );
 
         $(document).ready(function() {
-            $('#example').DataTable({
+            $('#example thead tr')
+                .clone(true)
+                .addClass('filters')
+                .appendTo('#example thead');
+
+                var table = $('#example').DataTable({
                 pagingType: 'full_numbers',
                 lengthMenu: [
-                    [50, 100, 200, 300 -1],
+                    [50, 100, 200, 300 - 1],
                     [50, 100, 200, 300, "All"]
-                ]
+                ],
+                orderCellsTop: true,
+                fixedHeader: true,
+                initComplete: function() {
+                    var api = this.api();
+
+                    // For each column
+                    api.columns()
+                        .eq(0)
+                        .each(function(colIdx) {
+                            // Set the header cell to contain the input element
+                            var cell = $('.filters th').eq(
+                                $(api.column(colIdx).header()).index()
+                            );
+                            var title = $(cell).text();
+
+                            $(cell).html('<input type="text" placeholder="' + title + '" style="width:50px" />');
+
+                            // On every keypress in this input
+                            $('input', $('.filters th').eq($(api.column(colIdx).header()).index()))
+                                .off('keyup change')
+                                .on('keyup change', function(e) {
+                                    e.stopPropagation();
+
+                                    // Get the search value
+                                    $(this).attr('title', $(this).val());
+                                    var regexr = '({search})';
+
+                                    var cursorPosition = this.selectionStart;
+
+                                    // Search the column for that value
+                                    api.column(colIdx)
+                                        .search(
+                                            this.value != '' ?
+                                            regexr.replace('{search}', '(((' + this.value + ')))') :
+                                            '',
+                                            this.value != '',
+                                            this.value == ''
+                                        )
+                                        .draw();
+
+                                    $(this)
+                                        .focus()[0]
+                                        .setSelectionRange(cursorPosition, cursorPosition);
+                                });
+                        });
+                },
             });
-        } );
+
+            $('#accepted_risk, #accepted_return').keyup( function() {
+                table.draw();
+            } );
+
+
+
+        });
+        
+
+            
+
 
     </script>
 
